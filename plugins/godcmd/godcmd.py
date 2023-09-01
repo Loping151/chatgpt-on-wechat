@@ -453,7 +453,6 @@ class Godcmd(Plugin):
     def get_help_text(self, isadmin=False, isgroup=False, **kwargs):
         return get_help_text(isadmin, isgroup)
 
-
     def is_admin_in_group(self, context):
         if context["isgroup"]:
             return context.kwargs.get("msg").actual_user_id in global_config["admin_users"]

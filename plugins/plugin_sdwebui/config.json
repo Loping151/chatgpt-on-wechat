@@ -1,0 +1,225 @@
+{
+  "start": {
+    "host": "127.0.0.1",
+    "port": 7860,
+    "use_https": false
+  },
+  "defaults": {
+    "params": {
+      "sampler_name": "DPM++ 2M Karras",
+      "steps": 30,
+      "width": 512,
+      "height": 512,
+      "cfg_scale": 7,
+      "prompt": "masterpiece, best quality, 8k, hdr, 4k, wallpaper",
+      "negative_prompt": " <lora:negative-15:1>, easynegative, badhandv4, (worst quality, low quality:1.4), emphasis lines, text, title, logo, signature, NSFW:1.2, sexy, nake, naked, undressed",
+      "enable_hr": false,
+      "hr_scale": 1.5,
+      "hr_upscaler": "4x-UltraSharp",
+      "hr_second_pass_steps": 10,
+      "denoising_strength": 0.5
+    },
+    "options": {
+      "sd_model_checkpoint": "meinapastel_v6Pastel",
+      "sd_vae": "counterfeitV25VAE_v25.pt"
+    }
+  },
+  "rules": [
+    {
+      "keywords": [
+        "横版"
+      ],
+      "params": {
+        "width": 640,
+        "height": 384
+      },
+      "desc": "分辨率会变成640x384"
+    },
+    {
+      "keywords": [
+        "竖版"
+      ],
+      "params": {
+        "width": 384,
+        "height": 640
+      }
+    },
+    {
+      "keywords": [
+        "高清",
+        "highres"
+      ],
+      "params": {
+        "enable_hr": true,
+        "hr_scale": 1.5
+      },
+      "desc": "出图分辨率长宽都会提高1.5倍"
+    },
+    {
+      "keywords": [
+        "二次元",
+        "那个",
+        "内个"
+      ],
+      "params": {
+        "prompt": "masterpiece, best quality, 1girl:1.5, clean face, (blush), (surprise), (happy)"
+      },
+      "options": {
+        "sd_model_checkpoint": "meinapastel_v6Pastel.safetensors",
+        "sd_vae": "counterfeitV25VAE_v25.pt"
+      },
+      "desc": "meinapastel_v6Pastel随机二次元图像"
+    },
+    {
+      "keywords": [
+        "小妹妹"
+      ],
+      "params": {
+        "prompt": "little girl, solo, uniform, China, best quality, small breasts, clean face, high-res, (catgirl:0.3), (elf:0.5),"
+      },
+      "desc": "小女孩模板"
+    },
+    {
+      "keywords": [
+        "女孩",
+        "girl"
+      ],
+      "params": {
+        "prompt": "1girl, solo, best quality, small breasts, clean face, high-res, (catgirl:0.3), (elf:0.5), (blush:0.5), (:o:0.3), (:):0.4)"
+      },
+      "desc": "普通女孩模板"
+    },
+    {
+      "keywords": [
+        "色图"
+      ],
+      "params": {
+        "negative_prompt": "beautiful, colorful, bright",
+        "prompt": "Cthulhu, abyss, awakening, colossal waves, darkness, dark, pure-coloe, eerie, scary, not understandable"
+      },
+      "options": {
+        "sd_model_checkpoint": "AOM3B2_orangemixs.safetensors",
+        "sd_vae": "orangemix.vae.pt"
+      },
+      "desc": "要不试试？"
+    },
+    {
+      "keywords": [
+        "贝塔",
+        "beta"
+      ],
+      "params": {
+        "prompt": "solo, 1girl, short hair, silver hair, bangs, braid, blue eyes, glasses, semi-rimless eyewear, under-rim_eyewear, bespectacled, alternate costume, yellow cardigan with long sleeves, collared dress shirt, (necktie), (grey pleated skirt), black socks, (uwabaki), :o, blush, (sunlight), full body,  <lora:beta:0.8>, outdoor"
+      },
+      "desc": "lora:beta"
+    },
+    {
+      "keywords": [
+        "心华v4",
+        "xinhuav4"
+      ],
+      "params": {
+        "prompt": "((masterpiece)), (((best quality))), ((extremely detailed)), ((colorful)), hdr, 1girl, solo,<lora:xinhua:0.8>, Xinhua, beret, yellow shirt, red eyes, neckerchief, hair ornament, very long hair, low twin-tails, purple eyes, pink skirt, bangs, wrist cuffs"
+      },
+      "desc": "lora:xinhua"
+    },
+    {
+      "keywords": [
+        "心华v5",
+        "xinhuav5"
+      ],
+      "params": {
+        "prompt": "((masterpiece)), (((best quality))), ((extremely detailed)), ((colorful)), hdr, 1girl, solo,<lora:xinhua:0.6>, Xinhua, twin-tails, white shirt, very long hair, dress, bare shoulders, long sleeves, bangs, skirt, red eyes, halterneck, beret, black headwear, low twin tails, high heels, earrings, white footwear, jewelry, collarbone, hair ornament, shirt"
+      },
+      "desc": "lora:xinhua"
+    },
+    {
+      "keywords": [
+        "武侠"
+      ],
+      "params": {
+        "prompt": "solo, uniform, China, best quality, small breasts, clean face, high-res, masterpieces, best quality, 8k, hdr, 4k, wallpaper, (catgirl:0.3), (elf:0.5), wuxia, Chinese sword, knives, fighting, smart, gun, bullet, injury"
+      },
+      "desc": "wuxia config"
+    },
+    {
+      "keywords": [
+        "yousa"
+      ],
+      "params": {
+        "prompt": "(masterpiece:1.331), best quality, illustration, (1girl),solo, lingyuan yousa, flat chest, <lora:lingyuan_yousa-000008:0.72>"
+      },
+      "desc": "冷鸟"
+    },
+    {
+      "keywords": [
+        "AOM3B2",
+        "aom3b2",
+        "b2"
+      ],
+      "params": {
+        "prompt": "masterpiece, best quality, 8k, hdr, 4k, wallpaper"
+      },
+      "options": {
+        "sd_model_checkpoint": "AOM3B2_orangemixs.safetensors",
+        "sd_vae": "orangemix.vae.pt"
+      },
+      "desc": "AOM3B2_orangemixs.safetensors"
+    },
+    {
+      "keywords": [
+        "可爱模型1",
+        "cute1",
+        "cute"
+      ],
+      "params": {
+        "prompt": "masterpiece, best quality, 8k, hdr, 4k, wallpaper"
+      },
+      "options": {
+        "sd_model_checkpoint": "cuteyukimixAdorable_neochapter3.safetensors"
+      },
+      "desc": "cuteyukimixAdorable_neochapter3.safetensors"
+    },
+    {
+      "keywords": [
+        "可爱模型2",
+        "cute2"
+      ],
+      "params": {
+        "prompt": "masterpiece, best quality, 8k, hdr, 4k, wallpaper"
+      },
+      "options": {
+        "sd_model_checkpoint": "cuteyukimixAdorable_midchapter.safetensors"
+      },
+      "desc": "cuteyukimixAdorable_midchapter.safetensors"
+    },
+    {
+      "keywords": [
+        "写实模型",
+        "real"
+      ],
+      "params": {
+        "prompt": "masterpiece, best quality, 8k, hdr, 4k, wallpaper"
+      },
+      "options": {
+        "sd_model_checkpoint": "onlyrealistic_v30BakedVAE.safetensors"
+      },
+      "desc": "onlyrealistic_v30BakedVAE.safetensors"
+    },
+    {
+      "keywords": [
+        "国风大模型"
+      ],
+      "params": {
+        "prompt": "masterpiece, best quality, 8k, hdr, 4k, wallpaper",
+        "width": 400,
+        "height": 400
+      },
+      "options": {
+        "sd_model_checkpoint": "SDXLRonghua_v20.safetensors",
+        "sd_vae": "sdxlVAE_v10.safetensors"
+      },
+      "desc": "SDXLRonghua_v20.safetensors, 不支持高清! 本服务器只有16G显存, 跑不动SDXL"
+    }
+  ]
+}
