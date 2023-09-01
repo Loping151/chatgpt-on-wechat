@@ -76,7 +76,8 @@ class OpenAIBot(Bot, OpenAIImage):
                 ok, retstring = self.create_img(query, 0)
                 reply = None
                 if ok:
-                    reply = Reply(ReplyType.IMAGE_URL, retstring)
+                    # reply = Reply(ReplyType.IMAGE_URL, retstring)
+                    reply = Reply(ReplyType.TEXT, f"我无法得到你要的图像, 可能的原因有: \n你可能没有正确地请求图片\n有人爆破了显存导致服务器挂了\n服务器日常抽风\n你没有v我50\n\n如果你多次看到此提示, 请停止尝试. ")
                 else:
                     reply = Reply(ReplyType.ERROR, retstring)
                 return reply
