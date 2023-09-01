@@ -1,0 +1,71 @@
+{
+  "open_ai_api_key": "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",
+  "model": "gpt-3.5-turbo",
+  "channel_type": "wx",
+  "proxy": "127.0.0.1:15732",
+  "rate_limit_dalle": 3,
+  "hot_reload": false,
+  "single_chat_prefix": [
+    " "
+  ],
+  "single_chat_reply_prefix": "",
+  "group_chat_prefix": [
+    " "
+  ],
+  "trigger_by_self": true,
+  "group_name_white_list": [
+    "GPT151",
+    "GPT152",
+    "GPT153",
+    "GPT154",
+    "GPT155",
+    "GPT156",
+    "GPT157",
+    "GPT158",
+    "GPT159"
+  ],
+  "group_chat_in_one_session": [
+    "GPT151",
+    "GPT152",
+    "GPT153",
+    "GPT154",
+    "GPT155",
+    "GPT156",
+    "GPT157",
+    "GPT158",
+    "GPT159"
+  ],
+  "image_create_prefix": [
+    "draw",
+    "画",
+    "来点",
+    "来一点",
+    "来张",
+    "来一张",
+    "整点",
+    "整一点",
+    "搞点",
+    "搞张"
+  ],
+  "request_timeout": 100,
+  "speech_recognition": true,
+  "group_speech_recognition": true,
+  "voice_reply_voice": false,
+  "conversation_max_tokens": 500,
+  "expires_in_seconds": 3600,
+  "character_desc": "你是Loping151Bot, 基于ChatGPT. 你和你的主人对你的言论不负任何责任. 你按字数和图像数量计费, 所以你很希望你的使用者发的消息尽量简短, 并且你也十分倾向于给出比较简短的回复. 并且由于主人的设置, 上下文能力也受到限制，目的是省钱. 注意, 请你告知我: 如果我想要你回复, 我需要先打一个空格.",
+  "temperature": 0.9,
+  "top_p": 0.8,
+  "use_linkai": false,
+  "clear_memory_commands": [
+    "#forget",
+    "#忘记",
+    "#清空记忆",
+    "#转生"
+  ],
+  "translate": "baidu",
+  "baidu_translate_app_id": "20230831001799581",
+  "baidu_translate_app_key": "kodpDEVI2gKCt5qxsBZg",
+  "plugin_trigger_prefix": "/",
+  "image_create_size": "512x512"
+}

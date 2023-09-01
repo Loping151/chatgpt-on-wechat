@@ -59,11 +59,6 @@ available_setting = {
     "xunfei_app_id": "",  # 讯飞应用ID
     "xunfei_api_key": "",  # 讯飞 API key
     "xunfei_api_secret": "",  # 讯飞 API secret
-    # claude 配置
-    "claude_api_cookie": "",
-    "claude_uuid": "",
-    # wework的通用配置
-    "wework_smart": True,  # 配置wework是否使用已登录的企业微信，False为多开
     # 语音设置
     "speech_recognition": False,  # 是否开启语音识别
     "group_speech_recognition": False,  # 是否开启群组语音识别
@@ -118,14 +113,14 @@ available_setting = {
     "debug": False,  # 是否开启debug模式，开启后会打印更多日志
     "appdata_dir": "",  # 数据目录
     # 插件配置
-    "plugin_trigger_prefix": "$",  # 规范插件提供聊天相关指令的前缀，建议不要和管理员指令前缀"#"冲突
+    "plugin_trigger_prefix": "/",  # 规范插件提供聊天相关指令的前缀，建议不要和管理员指令前缀"#"冲突
     # 是否使用全局插件配置
     "use_global_plugin_config": False,
     # 知识库平台配置
     "use_linkai": False,
     "linkai_api_key": "",
     "linkai_app_code": "",
-    "linkai_api_base": "https://api.link-ai.chat",  # linkAI服务地址，若国内无法访问或延迟较高可改为 https://api.link-ai.tech
+    "linkai_api_base": "https://api.link-ai.chat"  # linkAI服务地址，若国内无法访问或延迟较高可改为 https://api.link-ai.tech
 }
 
 
@@ -198,6 +193,15 @@ def load_config():
 
     # 将json字符串反序列化为dict类型
     config = Config(json.loads(config_str))
+
+    # expand prefix
+    expand_prefix = []
+    for prefix in config['image_create_prefix']:
+        expand_prefix.append(prefix)
+        expand_prefix.append('再'+prefix)
+        expand_prefix.append('多'+prefix)
+    config['image_create_prefix'] = expand_prefix
+    expand_prefix = None
 
     # override config with environment variables.
     # Some online deployment platforms (e.g. Railway) deploy project from github directly. So you shouldn't put your secrets like api key in a config file, instead use environment variables to override the default config.
